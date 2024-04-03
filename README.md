@@ -2,10 +2,6 @@
 # Simple Factorial calculator.
 #
 # ## Usage
-# 1. Jalankan program.
-# 2. Masukkan nilai.
-# 3. Nilai tidak boleh selain angka.
-#
 # ## Dependencies
 # - None
 #
