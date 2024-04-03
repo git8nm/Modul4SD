@@ -1,38 +1,27 @@
+package Modul4Codelab;
+
+import java.util.HashMap;
 import java.util.Scanner;
 
-/**
- * @author LENOVO-T470s
- * Program untuk menghitung faktorial dari suatu angka yang diinputkan oleh pengguna.
- */
-public class FaktorialCalculator {
-    /**
-     * Metode utama program.
-     *
-     * @param args Argumen baris perintah (tidak digunakan dalam program ini).
-     */
+public class Inventory{
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Masukkan angka untuk menghitung faktorial: ");
-        int angka = input.nextInt();
-
-        long faktorial = hitungFaktorial(angka);
-        System.out.println("Faktorial dari " + angka + " adalah " + faktorial);
-
-        input.close(); // Pastikan untuk menutup Scanner setelah digunakan.
+        HashMap<String, Integer> inventori = new HashMap<>();
+        inventori.put("Pensil", 50); inventori.put("Buku", 35);
+        inventori.put("Penghapus", 25);
+        System.out.println("Inventori awal: " + inventori);
+        inventori.put("Pensil", inventori.get("Pensil") + 20);
+        inventori.remove("Penghapus");
+        System.out.println("Inventori setelah update: " + inventori);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Masukkan nama barang yang ingin dicari: ");
+        String barang = scanner.nextLine();
+        cariBarang(inventori, barang);
     }
-
-    /**
-     * Metode untuk menghitung faktorial dari suatu angka.
-     *
-     * @param n Angka yang akan dihitung faktorialnya.
-     * @return Hasil faktorial dari angka yang diberikan.
-     */
-    public static long hitungFaktorial(int n) {
-        if (n == 0) {
-            return 1;
+    public static void cariBarang (HashMap<String, Integer> inventori, String barang) {
+        if (inventori.containsKey(barang)) {
+            System.out.println("Stok" + barang + ":" + inventori.get(barang) + " unit.");
         } else {
-            return n * hitungFaktorial(n - 1);
+            System.out.println("Barang " + barang + " tidak tersedia di inventori.");
         }
     }
 }
